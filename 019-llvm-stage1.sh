@@ -73,10 +73,10 @@ case "$HOST_SYS" in
     #   lib which will fail with errors like "undefined reference to '_Unwind_GetIP'".
     # LLVM_ENABLE_PER_TARGET_RUNTIME_DIR
     #   When on (default for linux, but not mac), rt libs are installed at
-    #   lib/clang/$LLVM_RELEASE/lib/$HOST_ARCH-unknown-linux-gnu/ with plain names
+    #   lib/clang/$LLVM_RELEASE_MAJOR/lib/$HOST_ARCH-unknown-linux-gnu/ with plain names
     #   like "libclang_rt.builtins.a".
     #   When off, libs have an arch suffix, e.g. "libclang_rt.builtins-x86_64.a" and
-    #   are installed in lib/clang/$LLVM_RELEASE/lib/.
+    #   are installed in lib/clang/$LLVM_RELEASE_MAJOR/lib/.
     ;;
 esac
 
@@ -206,7 +206,7 @@ ln -fsv llvm-objcopy "$LLVM_STAGE1/bin/llvm-strip"
 if [ "$HOST_SYS" = "Linux" ]; then
   # [linux] Sometimes(??) the rtlibs are installed at lib instead of lib/linux
   # Check for that now to pervent hard-to-debug errors later
-  CLANG_LIB_DIR="$LLVM_STAGE1/lib/clang/$LLVM_RELEASE/lib"
+  CLANG_LIB_DIR="$LLVM_STAGE1/lib/clang/$LLVM_RELEASE_MAJOR/lib"
   EXPECT_FILE="$CLANG_LIB_DIR/linux/libclang_rt.builtins-$HOST_ARCH.a"
   [ -e "$EXPECT_FILE" ] ||
     _err "expected file not found: $EXPECT_FILE"

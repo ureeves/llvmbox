@@ -439,9 +439,9 @@ _gen_buildfile() { # <arch> <sys> [<sysver>]
     -fomit-frame-pointer \
     -Wno-nullability-completeness \
     -I. \
-    -I../../lib/clang/$LLVM_RELEASE/include \
+    -I../../lib/clang/$LLVM_RELEASE_MAJOR/include \
   )
-  # note: lib/clang/$LLVM_RELEASE/include contains headers for all supported archs
+  # note: lib/clang/$LLVM_RELEASE_MAJOR/include contains headers for all supported archs
 
   # system and libc headers
   [ -n "$sysver" ] &&

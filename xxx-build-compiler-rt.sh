@@ -26,7 +26,7 @@ CFLAGS=(
   -fomit-frame-pointer \
   -Wno-nullability-completeness \
   -I. \
-  -I$LLVMBOX/lib/clang/$LLVM_RELEASE/include \
+  -I$LLVMBOX/lib/clang/$LLVM_RELEASE_MAJOR/include \
 )
 ASFLAGS=(
   -nostdinc -Os --target=$TARGET_TRIPLE \
@@ -35,7 +35,7 @@ ASFLAGS=(
   -fomit-frame-pointer \
   -I. \
 )
-# note: lib/clang/$LLVM_RELEASE/include contains headers for all supported archs
+# note: lib/clang/$LLVM_RELEASE_MAJOR/include contains headers for all supported archs
 
 # system and libc headers
 for d in \

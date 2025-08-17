@@ -148,6 +148,7 @@ SUPPORTED_DIST_TARGETS=( # tuples with system versions
 # ————————————————————————————————————————————————————————————————————————————————————
 
 LLVM_RELEASE=19.1.7  # reset LLVMBOX_VERSION_TAG when upgrading
+LLVM_RELEASE_MAJOR=${LLVM_RELEASE%%.*}
 LLVM_SHA256=59abea1c22e64933fad4de1671a61cdb934098793c7a31b333ff58dc41bff36c
 LLVM_SRC_URL=https://github.com/llvm/llvm-project/archive/llvmorg-${LLVM_RELEASE}.tar.gz
 [[ "$LLVM_RELEASE" != *"."* ]] && # git snapshot
@@ -201,7 +202,7 @@ LINUX_HEADERS_DESTDIR=${LINUX_HEADERS_DESTDIR:-$BUILD_DIR/linux-${LINUX_VERSION}
 MUSLFTS_SRC=${MUSLFTS_SRC:-$BUILD_DIR/src/musl-fts}
 MUSLFTS_DESTDIR=${MUSLFTS_DESTDIR:-$BUILD_DIR/musl-fts-$TARGET}
 
-MUSL_VERSION=1.2.3
+MUSL_VERSION=1.2.5
 MUSL_SHA256=a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4
 MUSL_SRC=${MUSL_SRC:-$BUILD_DIR/src/musl}
 MUSL_HOST=${MUSL_HOST:-$BUILD_DIR/musl-host}

@@ -34,7 +34,7 @@ AR=$STAGE2_AR \
 RANLIB=$STAGE2_RANLIB \
 CFLAGS="${STAGE2_CFLAGS[@]}" \
 LDFLAGS="${STAGE2_LDFLAGS[@]}" \
-LIBCC="-L$LLVM_STAGE1/lib/clang/$LLVM_RELEASE/lib/linux -lclang_rt.builtins-$TARGET_ARCH" \
+LIBCC="-L$LLVM_STAGE1/lib/clang/$LLVM_RELEASE_MAJOR/lib/linux -lclang_rt.builtins-$TARGET_ARCH" \
 ./configure --target=$TARGET_TRIPLE --prefix= ${CONFIG_ARGS:-}
 
 make -j$NCPU
